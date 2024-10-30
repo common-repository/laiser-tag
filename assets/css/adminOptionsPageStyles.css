@@ -1,0 +1,389 @@
+/* styles shared by Insights. Note that changes to one, needs to be changed in the other */
+@charset "utf-8";
+
+/* note that .laisertag-pg is the page's parent div. if we need to make changes exclusive to this pg, add under that div. for changes to the Insights page, that's another class. found in the css file there */
+.laisertag-pg {}
+
+/* typography */
+.laisertag-pg h1 {
+  font-size: 1.5em;
+}
+.laisertag-pg strong {
+  font-weight: 700;
+}
+.laisertag-pg .light-txt {
+  font-weight: 300;
+}
+
+/* making sure the labels don't give the illusion of being actionable */
+label {
+	cursor: default;
+}
+
+/* altering the focus state for this page on a-tags*/
+.laisertag-pg a:focus {
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+}
+/* section headers across the board: taken from Insights, should always match */
+.laisertag-pg .insights-title-border {
+  background: #176888;
+  margin-bottom: 25px;
+  padding-left: 25px;
+}
+.laisertag-pg .insights-title-border h3 {
+    color: #fff;
+}
+
+/* in leiu of mixins */
+.laisertag-blue-border {
+  border: 1px solid #176888;
+}
+
+
+/* header containing the logo, description */
+.laisertag-pg #header {
+  padding: 25px 25px 25px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.laisertag-pg #header .logo-title {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 9px; /* with default padding from wp, makes it look aligned with text below in mobile */
+}
+
+.laisertag-pg #header h2,
+.laisertag-pg #header p {
+  padding: 0 10px;
+}
+
+@media screen and (min-width: 767px) {
+  .laisertag-pg #header {
+    flex-direction: row;
+  }
+}
+
+.laisertag-pg #logo {
+	max-width: 120px;
+  margin-right: 25px;
+}
+
+/* for the update box */
+.insights-update {
+  border-radius: 5px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.4);
+  width: 200px;
+
+}
+
+/* the tabs: taken from Insights, should always match */
+.laisertag-pg .nav-tab-parent {
+  max-width: 100%;
+  margin: 0 2em 2em 1em;
+}
+.laisertag-pg .nav-tab-wrapper {
+  border-bottom: 0;
+}
+
+.laisertag-pg .nav-tab {
+  font-weight: 700;
+  background: #fff;
+  color: #176888;
+  border-radius: 5px 5px 0 0;
+  border: 2px solid #176888;
+  border-bottom: 0;
+  opacity: 0.8;
+}
+.laisertag-pg .nav-tab:hover {
+    opacity: 1;
+}
+/* active state for the tab selected */
+.laisertag-pg .nav-tab.active {
+  background: #176888;
+  color: #fff;
+  opacity: 1;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4); /* matches the :focus state */
+}
+
+/* titles used on all panels: this is taken from Insights, and should match */
+.laisertag-pg .laisertag-subtitles {
+  background: #176888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 25px;
+}
+.laisertag-pg .laisertag-subtitles h1 {
+  color: #fff;
+}
+
+/* and for the section titles within tabs: */
+.lt-section-title {
+  background: #176888;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  margin: 21px 0;
+}
+
+/* padding for inner box. matches the Insights class */
+.laisertag-pg .insights-inner-padding {
+  padding: 15px;
+}
+
+/* for the 'settings' tab, where we split the columns: taken from Insights and should match */
+.laisertag-pg .flex-parent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* forces the sidebar beneath the info circles on all up to tablet */
+}
+
+/* and for desktop, 1px above ipad size*/
+@media all and (min-width: 769px) {
+  .laisertag-pg .flex-parent {
+    flex-wrap: nowrap;
+  }
+}
+
+/* buttons found in right sidebar: taken from Insights, should always match */
+.laisertag-pg .insights-button,
+input[type='submit'] {
+  display: block;
+  padding: 14px 0;
+  color: #fff;
+  background: #176888;
+  box-shadow: 0 1px 1px rgba(0,0,0,.4);
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}
+.laisertag-pg .insights-button:hover,
+.laisertag-pg input[type='submit']:hover,
+.laisertag-pg .insights-button:focus,
+.laisertag-pg input[type='submit']:focus {
+  background: #9dcb3c;
+  color: #fff;
+}
+
+/* now where it differs */
+input[type="submit"] {
+  padding: 14px;
+}
+
+
+/* for the calais logo in the right column */
+.laisertag-pg .calais-logo {
+  max-width: 100%;
+}
+
+/* box sitting to the left, on settings tab */
+.laisertag-pg .insights-leftbox {
+  background: #fff;
+  order: 1;
+  flex: 1 1 auto; /* makes sure it fills the space */
+  padding: 15px;
+}
+/* for browsers that cannot read flex*/
+@supports not(display:flex) {
+  .laisertag-pg .insights-leftbox {
+    width: 63%;
+    float: left;
+  }
+}
+
+.laisertag-pg .insights-leftbox h3 {
+  font-weight: 400;
+}
+
+/* box sitting to the right */
+.laisertag-pg .insights-rightbox {
+  border-top: 1px solid #ddd;
+  flex: 1 1 100%;
+  background: #fff;
+  padding: 15px;
+  order: 2;
+  margin: 1em 0;
+}
+/* for browsers that cannot read flex*/
+@supports not(display:flex) {
+  .laisertag-pg .insights-rightbox {
+    float: right;
+    min-width: 255px;
+  }
+}
+/* and for ipad and up */
+@media all and (min-width: 769px) {
+  .laisertag-pg .insights-rightbox {
+    max-width: 20%;
+    float: none;
+		border-left: 1px solid #ddd;
+		border-top: 0;
+  }
+}
+
+/* on the Settings tab, the welcome box */
+.lt-first-visit-box {
+  background: #bcdae8;
+  padding: 7px;
+  font-weight: 600;
+  border-left: 10px solid #000;
+}
+
+.laisertag-pg .widefat {
+  max-width: 600px; /* for very wide res monitor */
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.widefat option {
+  padding: 3px !important;
+}
+
+/* fixing the width on elements that need .widefat, but also need a full width */
+.laisertag-pg textarea.widefat {
+  max-width: 100%;
+}
+
+/* for the newly coded form fields. separates each chunk */
+
+.lt-form-chunk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* and for mobile */
+@media all and (max-width:767px) {
+	.lt-form-chunk {
+		flex-direction: column;
+	}
+}
+
+
+.lt-form-chunk label {
+  font-weight: 600;
+  width: 35%;
+  padding-right: 25px;
+}
+
+/* rounding some corners in the forms */
+.lt-form-chunk input[type="text"],
+.lt-form-chunk select,
+.lt-form-chunk input[type="checkbox"],
+.lt-form-chunk input[type="number"]  {
+  border-radius: 5px;
+}
+/* giving the elements a width */
+.lt-form-chunk input[type="text"],
+.lt-form-chunk select,
+.lt-form-subchunk {
+ width: 60%;
+}
+
+/* and for mobile - done this way as multiples inherit this. */
+@media all and (max-width:767px) {
+	.lt-form-chunk input[type="text"],
+	.lt-form-chunk select,
+	.lt-form-subchunk,
+	.lt-form-chunk label {
+		width: 100%;
+	}
+	.lt-form-chunk label {
+		padding-right: 0;
+		margin-bottom: 20px;
+	}
+}
+
+/* and now we style the readonly box */
+.lt-form-chunk input[readonly],
+.lt-form-subchunk input[readonly] {
+  background: #f2fafd;
+  padding: 7px;
+  width: 100%;
+  max-width: 600px; /* to mirror all the other elements */
+}
+
+/* so the slider behaves with flex */
+#ltoc_tag_relevance_slider {
+  width: 100%;
+  height: 25px;
+}
+/* recoloring it from the defaults. */
+.lt-form-chunk .ui-widget-header {
+  background: #b9ef47;
+
+}
+.lt-form-chunk .ui-state-default,
+.lt-form-chunk .ui-widget-content .ui-state-default {
+  background: #176888;
+  color: #fff;
+}
+/* the paragraph beneath it */
+.laisertag-pg p.description {
+  margin-top: 15px;
+}
+
+/* when the hr is used for spacing */
+hr.section-spacing {
+  margin: 22px 0;
+}
+
+/* tweaking the checkbox just a little */
+.lt-form-chunk input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+}
+.lt-form-chunk input[type="checkbox"]:checked:before {
+  float: none; /* trust me here */
+  margin: 0;
+  font-size: 53px;
+}
+
+/* for the button on the 'tags' page */
+.laisertag-pg .extra-padding {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#custom-handle {
+	width: 3.2em;
+	height: 35px;
+	text-align: center;
+	line-height: 1.6em;
+	cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ltoc_batch_posts {
+	width: 60px;
+}
+
+
+#batch_process {
+	margin-top: 30px;
+}
+
+#batch_process_pending {
+	display: none;
+    position: relative;
+    top: 5px;
+}
+
+
+
+.ltoc_logoutput {
+	padding: 1em;
+}
